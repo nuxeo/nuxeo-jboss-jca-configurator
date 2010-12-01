@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<component name="org.nuxeo.jboss.jca.JBossJCADynamicConfigurator">
+  <implementation class="org.nuxeo.jboss.jca.JBossJCADynamicConfigurator"/>
+</component>
