@@ -104,6 +104,11 @@ public class JBossJCADynamicConfigurator extends DefaultComponent implements  Fr
         if (valid!=null) {
             jca.setBackGroundValidationMillis(Integer.parseInt(valid));
         }
+
+        // restart pool so that configuration is taken into account
+        jca.stop();
+        jca.start();
+
     }
 
     protected void configureRepositories() throws Exception {
