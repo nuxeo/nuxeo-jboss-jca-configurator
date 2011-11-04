@@ -4,35 +4,33 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.nuxeo.ecm.core</groupId>
-    <artifactId>nuxeo-core-parent</artifactId>
+    <groupId>org.nuxeo</groupId>
+    <artifactId>nuxeo-addons-parent</artifactId>
     <version>5.5-SNAPSHOT</version>
   </parent>
 
   <groupId>org.nuxeo.ecm.core</groupId>
   <artifactId>nuxeo-jboss-jca-configurator</artifactId>
   <name>Nuxeo JBoss 5 Deployer</name>
-
   <description>Nuxeo dynamic JCA configurator</description>
 
   <dependencies>
     <dependency>
-     <groupId>org.jboss.jbossas</groupId>
-     <artifactId>jboss-as-connector</artifactId>
-     <version>5.1.0.GA</version>
-   </dependency>
-   <dependency>
+      <groupId>org.jboss.jbossas</groupId>
+      <artifactId>jboss-as-connector</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.nuxeo.ecm.core</groupId>
       <artifactId>nuxeo-core-api</artifactId>
-   </dependency>
-   <dependency>
+    </dependency>
+    <dependency>
       <groupId>org.nuxeo.runtime</groupId>
       <artifactId>nuxeo-runtime-management</artifactId>
-   </dependency>
-   <dependency>
-    <groupId>org.nuxeo.runtime</groupId>
-    <artifactId>nuxeo-runtime</artifactId>
-   </dependency>
+    </dependency>
+    <dependency>
+      <groupId>org.nuxeo.runtime</groupId>
+      <artifactId>nuxeo-runtime</artifactId>
+    </dependency>
     <dependency>
       <groupId>org.osgi</groupId>
       <artifactId>osgi-core</artifactId>
@@ -43,12 +41,45 @@
       <artifactId>junit</artifactId>
       <scope>test</scope>
     </dependency>
-    <!-- for debug <dependency> <groupId>org.jboss.jbossas</groupId> <artifactId>jboss-as-server</artifactId> 
-      <classifier>sources</classifier> </dependency> -->
+    <!-- for debug -->
+    <!-- <dependency> -->
+    <!-- <groupId>org.jboss.jbossas</groupId> -->
+    <!-- <artifactId>jboss-as-server</artifactId> -->
+    <!-- <classifier>sources</classifier> -->
+    <!-- </dependency> -->
     <dependency>
       <groupId>org.jboss.jbossas</groupId>
       <artifactId>jboss-as-ejb3</artifactId>
     </dependency>
   </dependencies>
+
+  <repositories>
+    <repository>
+      <id>public</id>
+      <url>http://maven.nuxeo.org/nexus/content/groups/public</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>public-snapshot</id>
+      <url>http://maven.nuxeo.org/nexus/content/groups/public-snapshot</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <scm>
+    <connection>scm:hg:http://hg.nuxeo.org/addons/nuxeo-jboss-jca-configurator</connection>
+    <developerConnection>scm:hg:https://hg.nuxeo.org/addons/nuxeo-jboss-jca-configurator</developerConnection>
+    <url>http://hg.nuxeo.org/addons/nuxeo-jboss-jca-configurator</url>
+  </scm>
 
 </project>
