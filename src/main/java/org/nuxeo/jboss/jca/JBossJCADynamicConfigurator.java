@@ -20,10 +20,10 @@ package org.nuxeo.jboss.jca;
 import javax.management.JMX;
 import javax.management.MBeanServer;
 import javax.management.ObjectName;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.jboss.resource.connectionmanager.JBossManagedConnectionPoolMBean;
-import org.nuxeo.ecm.core.api.repository.Repository;
 import org.nuxeo.ecm.core.api.repository.RepositoryManager;
 import org.nuxeo.runtime.api.Framework;
 import org.nuxeo.runtime.management.ServerLocator;
@@ -112,12 +112,10 @@ public class JBossJCADynamicConfigurator extends DefaultComponent implements  Fr
     }
 
     protected void configureRepositories() throws Exception {
-        RepositoryManager rm = Framework.getLocalService(RepositoryManager.class);
-        if (rm!=null) {
-            for (Repository repo : rm.getRepositories()) {
-                log.info("Check JCA configuration for repository " + repo.getName());
-                configureRepository(repo.getName());
-            }
+        RepositoryManager repositoryManager = Framework.getLocalService(RepositoryManager.class);
+        for (String repositoryName : repositoryManager.getRepositoryNames()) {
+            log.info("Check JCA configuration for repository " + repositoryName);
+            configureRepository(repositoryName);
         }
     }
 
